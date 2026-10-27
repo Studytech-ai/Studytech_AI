@@ -1,0 +1,21 @@
+# One-click setup for Render: New + > Blueprint > pick this repository.
+services:
+  - type: web
+    name: studytech
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DAILY_LIMIT
+        value: "150"
+      - key: ALLOWED_EMAILS
+        value: "*"
+      - key: GEMINI_API_KEY
+        sync: false
